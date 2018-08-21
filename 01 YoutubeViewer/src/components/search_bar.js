@@ -18,7 +18,7 @@ import React, { Component }  from 'react'; // Import React and get Component
 
 // Class component improved:
 class SearchBar extends Component{
-    // Functional components do not have state.  Only class states do
+    // Functional components do not have state.  Only class components do
     constructor(props){
     // constructor is called automatially when a new instance of a class is created
         super(props);

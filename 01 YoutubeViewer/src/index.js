@@ -1,7 +1,9 @@
-//import React from 'react';  // For functional component
+//import React from 'react';  // For functional component. 
+                              // Knows how to work with React components - ie. render, nest
+
 import React, { Component } from 'react'; // For class component
 import _ from 'lodash';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom'; // Provides functionality to render React components to the DOM
 
 
 import YTSearch from 'youtube-api-search';
@@ -17,6 +19,18 @@ const API_KEY = 'AIzaSyCx0qCEcEZcEiCXIGap1jO3Qo9yPpSR3pA';
 // const App = function(){
 //   return <div>Hi!</div>;
 // }
+
+// const App = () => {
+//   return <div>Hi!</div>
+// }
+
+
+// Take this component's generated HTML and put it 
+// on the page (in DOM)
+
+//                  what              where
+//                   |                 |
+// ReactDOM.render(<App />, document.querySelector('.container'))
 
 // Functional component
 // const App = () => {
