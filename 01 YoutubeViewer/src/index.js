@@ -1,7 +1,7 @@
 //import React from 'react';  // For functional component. 
                               // Knows how to work with React components - ie. render, nest
 
-require('dotenv').config()
+// require('dotenv').config()
 
 import React, { Component } from 'react'; // For class component
 import _ from 'lodash';
@@ -14,7 +14,7 @@ import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
 
 const API_KEY = '';
-const API_KEY = process.env.REACT_APP_YOUTUBE_DATA_API_V3;
+// const API_KEY = process.env.REACT_APP_YOUTUBE_DATA_API_V3;
 
 
 // Create a new comoponent.
