@@ -2,11 +2,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import SearchBar from './components/search_bar';
+
+const API_KEY = '';
+// const API_KEY = process.env.REACT_APP_YOUTUBE_KEY;
+
 // Create new component. 
 // This component should produce some HTML
 // WHAT
 const App = () => {
-    return <div>Hi!</div>;  // JSX
+    return (
+        <div>
+            <SearchBar />
+        </div>
+    );  // JSX
 }
 
 
