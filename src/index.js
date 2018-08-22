@@ -6,7 +6,7 @@ import YTSearch from 'youtube-api-search';
 import SearchBar from './components/search_bar';
 import VideoList from './components/video_list'
 
-const API_KEY = '';
+const API_KEY = 'AIzaSyCx0qCEcEZcEiCXIGap1jO3Qo9yPpSR3pA';
 // const API_KEY = process.env.REACT_APP_YOUTUBE_KEY;
 
 
@@ -15,7 +15,7 @@ class App extends Component{
     constructor(props){
         super(props);
 
-        this.state = { videos: {} };
+        this.state = { videos: [] };
 
         YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
                 this.setState({ videos });   // Same as: this.setState({ videos: videos });
