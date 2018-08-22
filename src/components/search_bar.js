@@ -6,18 +6,24 @@ import React, { Component } from 'react';
 //   return <input />;
 // };
 
-// Class-based component
+// Component
 class SearchBar extends Component{
-  render(){
-    // return <input onChange = {this.onInputChange} />;
-    // return <input onChange = {(event) => console.log(event.target.value)} />;
-    return <input onChange = {event => console.log(event.target.value)} />;
+  // Constructor function
+  constructor(props){
+    super(props);
+
+    this.state = {term:''};
   }
 
-  // event handler
-  // onInputChange(event){
-  //   console.log(event.target.value);
-  // }
+  render(){
+    return (
+      <div>
+        <input onChange = {event => this.setState({ term: event.target.value })} />  {/* stste gets updated with new value */}
+        Value of input: {this.state.term}                                            {/* The updated value is diusplayed */}
+      </div>
+    );
+  }
+
 }
 
 
