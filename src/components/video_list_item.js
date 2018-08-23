@@ -8,9 +8,6 @@ const VideoListItem = ({video, onVideoSelect}) => {
       <div className = "video-list media">
         <div className = "media-left">
           <img 
-            // 03
-            // onVideoSelect is now passed on to the VideoListItem component
-            // when clicked, onVideoSelect function is called with the value (video) that was clicked
             onClick={() => onVideoSelect(video)} 
             className = "media-object" src={imageUrl}/>
         </div>

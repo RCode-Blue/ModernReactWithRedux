@@ -1,4 +1,4 @@
-// Get React and ReactDOM:
+import _ from 'lodash';
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
@@ -35,19 +35,19 @@ class App extends Component{
     }
 
     render() {
+        const videoSearch = _.debounce((term) => {this.videoSearch(term)}, 300);
+
         return(
             <div>
                 <SearchBar 
-                    onSearchTermChange = {term => this.videoSearch({term})}
+                    onSearchTermChange = {videoSearch}
+                    // alternatively:
+                    // onSearchTermChange = {_.debounce((term) => {this.videoSearch(term)}, 300)}
                 />
                 <VideoDetail 
                     video={this.state.selectedVideo}
                 />
                 <VideoList 
-                    // 01
-                    // onVideoSelect a function 
-                    // the function updates the state with the selected video (selectedVideo)
-                    // onVideoSelect is passed as a property (prop) to the VideoList component
                     onVideoSelect = {selectedVideo => this.setState({selectedVideo})} 
                     videos = {this.state.videos} 
                     />

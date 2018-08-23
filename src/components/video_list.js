@@ -6,8 +6,6 @@ const VideoList = (props) => {
   const videoItems = props.videos.map((video) => {
     return (
       <VideoListItem 
-        // 02
-        // in the VideoList component, onVideoSelect is passed on to the VideoListItem component
         onVideoSelect = {props.onVideoSelect}
         key={video.etag} 
         video = {video} />
