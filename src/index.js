@@ -8,7 +8,7 @@ import VideoDetail from './components/video_detail';
 import SearchBar from './components/search_bar';
 
 
-const API_KEY = 'AIzaSyCx0qCEcEZcEiCXIGap1jO3Qo9yPpSR3pA';
+const API_KEY = '';
 // const API_KEY = process.env.REACT_APP_YOUTUBE_KEY;
 
 
@@ -17,10 +17,17 @@ class App extends Component{
     constructor(props){
         super(props);
 
-        this.state = { videos: [] };
+        this.state = { 
+            videos: [] ,
+            selectedVideo: null
+        };
+
 
         YTSearch({key: API_KEY, term: 'surfboards'}, (videos) => {
-                this.setState({ videos });   // Same as: this.setState({ videos: videos });
+                this.setState({ 
+                    videos: videos,
+                    selectedVideo: videos[2]
+                });   // Same as: this.setState({ videos: videos });
             }
         );
     }
@@ -28,8 +35,15 @@ class App extends Component{
         return(
             <div>
                 <SearchBar />
-                <VideoDetail video={this.state.videos[0]}/>
-                <VideoList videos={this.state.videos} />
+                <VideoDetail video={this.state.selectedVideo}/>
+                <VideoList 
+                    // 01
+                    // onVideoSelect a function 
+                    // the function updates the state with the selected video (selectedVideo)
+                    // onVideoSelect is passed as a property (prop) to the VideoList component
+                    onVideoSelect = {selectedVideo => this.setState({selectedVideo})} 
+                    videos = {this.state.videos} 
+                    />
             </div>
         );
     }
