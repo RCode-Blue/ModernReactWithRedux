@@ -3,17 +3,22 @@ import {connect} from 'react-redux';
 import { selectBook } from '../actions/index'; // 
 import { bindActionCreators } from 'redux';    // 
 
+// Renders list of books. 
+// If list item clicked, run clickBook(book)
 class BookList extends Component{
   renderList(){
     return this.props.books.map((book) => {
       return(
-        <li key={book.title} className = "list-group-item">
+        <li 
+        key={book.title}
+        onClick = {() => this.props.clickBook(book)}
+        className = "list-group-item">
           {book.title}
         </li>
       );
     });
   }
-
+  // Renders list of books
   render(){
     return(
       <ul className = "list-group col-sm-4">
@@ -23,22 +28,27 @@ class BookList extends Component{
   }
 }
 
-// The following converts the BookList component to a container
+
+// Converts state to props
 function mapStateToProps(state){
   // Whatever is returned will show up as props in BookList
   // > list of books
   return{
-    books: state.books
+    books: state.allBooks
   };
 }
 
+
+// When an event occurs, passes the relevant actions to all components
 function mapDispatchToProps(dispatch){
-  // Result from selectBook (ie the actions) will be passed to all reducers. This is done by the 'dispatch' function below
+  // eg:
+  // Result from selectBook (ie the actions) will be passed to all reducers. 
+  // This is done by the 'dispatch' function below
   return bindActionCreators(
-    {selectBook: selectBook}, dispatch
+    {clickBook: selectBook}, dispatch
   );
 }
 
 
-// 'connect' takes a function (mapStateToProps) and a component (BookList) and produces a container
+// Takes a component (BookList) and converts produces a component
 export default connect(mapStateToProps, mapDispatchToProps)(BookList);
