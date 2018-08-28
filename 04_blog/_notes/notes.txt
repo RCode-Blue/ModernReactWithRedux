@@ -1,0 +1,3 @@
+blog api url:
+http://reduxblog.herokuapp.com/
+
